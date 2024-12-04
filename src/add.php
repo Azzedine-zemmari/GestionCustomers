@@ -6,6 +6,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $lastName = trim(htmlspecialchars(htmlentities($_POST['lastName'])));
     $email = $_POST['email'];
     $created = date("Y-m-d");
+    //test the validation;
     if(strlen($firstName)<3){
         $_SESSION['error']="must be greater then 3";
         header("Location: index.php");
