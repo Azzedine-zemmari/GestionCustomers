@@ -1,5 +1,6 @@
 <?php
 //Read and display the data of customers
+session_start();
 include '../dbConn.php';
 $query = "select * from customer";
 $result = mysqli_query($db_connect,$query);
@@ -13,9 +14,11 @@ $result = mysqli_query($db_connect,$query);
     <link rel="stylesheet" href="./output.css">
 </head>
 <body class="relative h-screen">
+<?php if(isset($_SESSION['error'])):?>
     <div class="flex bg-yellow-200 p-4">
-        <p class="text-yellow-700">Customer added with success</p>
+        <p class="text-yellow-700"><?php echo $_SESSION['error']?></p>
     </div>
+    <?php endif ?>
     <div class="flex justify-between items-center mx-4 mt-2">
         <h2 class="font-bold text-xl">Customers List</h2>
         <a href="#" id="add" class="bg-green-400 text-white font-semibold p-2 rounded-sm">Add Customer</a>
@@ -38,8 +41,8 @@ $result = mysqli_query($db_connect,$query);
             <td class="px-2 md:px-6 py-3"><?php echo $customer_data['lastName'];?></td>
             <td class="px-2 md:px-6 py-3 overflow-hidden"><?php echo $customer_data['email'];?></td>
             <td class="px-2 md:px-6 py-3">
-                <button class="bg-blue-500 text-white px-5 py-2 rounded-lg">Edit</button>
-                <button class="bg-red-500 text-white px-5 py-2 rounded-lg">Delete</button>
+                <a class="bg-blue-500 text-white px-5 py-2 rounded-lg">Edit</a>
+                <a href="delete.php?customer_id=<?php echo $customer_data['Customer_id'];?>" class="bg-red-500 text-white px-5 py-2 rounded-lg">Delete</a>
             </td>
         </tr>
         <?php endwhile; ?>
