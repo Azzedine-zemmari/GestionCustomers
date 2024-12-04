@@ -12,13 +12,13 @@ $result = mysqli_query($db_connect,$query);
     <title>Ain</title>
     <link rel="stylesheet" href="./output.css">
 </head>
-<body>
+<body class="relative h-screen">
     <div class="flex bg-yellow-200 p-4">
         <p class="text-yellow-700">Customer added with success</p>
     </div>
     <div class="flex justify-between items-center mx-4 mt-2">
         <h2 class="font-bold text-xl">Customers List</h2>
-        <a href="#" class="bg-green-400 text-white font-semibold p-2 rounded-sm">Add Customer</a>
+        <a href="#" id="add" class="bg-green-400 text-white font-semibold p-2 rounded-sm">Add Customer</a>
     </div>
     <table class="w-full text-left ">
     <thead>
@@ -37,12 +37,26 @@ $result = mysqli_query($db_connect,$query);
             <td class="px-2 md:px-6 py-3"><?php echo $customer_data['firstName'];?></td>
             <td class="px-2 md:px-6 py-3"><?php echo $customer_data['lastName'];?></td>
             <td class="px-2 md:px-6 py-3 overflow-hidden"><?php echo $customer_data['email'];?></td>
-            <td class="px-2 md:px-6 py-3">act</td>
+            <td class="px-2 md:px-6 py-3">
+                <button class="bg-blue-500 text-white px-5 py-2 rounded-lg">Edit</button>
+                <button class="bg-red-500 text-white px-5 py-2 rounded-lg">Delete</button>
+            </td>
         </tr>
         <?php endwhile; ?>
     </tbody>
 </table>
-
     <?php mysqli_free_result($result); ?>
+    <div id="insertForm" class="hidden w-52 h-52 bg-slate-50 absolute inset-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
+        <form action="add.php" method="post" class="border border-slate-700 shadow-md rounded-lg flex flex-col px-8">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" class="w-32 border border-slate-400 mb-2">
+            <label for="lastName">LastName:</label>
+            <input type="text" id="lastName" name="lastName" class="w-32 border border-slate-400 mb-2">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="w-32 border border-slate-400 mb-2">
+            <button  class="bg-green-400 text-white px-2 my-2">submit</button>
+        </form>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>
