@@ -11,8 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./output.css">
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 <body>
 <div id="updateForm" class="w-52 h-52 bg-slate-50 absolute inset-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
         <form action="update.php" method="POST" class="border border-slate-700 shadow-md rounded-lg flex flex-col px-8">

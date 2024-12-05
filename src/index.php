@@ -11,8 +11,8 @@ $result = mysqli_query($db_connect,$query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ain</title>
-    <link rel="stylesheet" href="./output.css">
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 <body class="relative h-screen">
 <?php if(isset($_SESSION['error'])):?>
     <div class="flex bg-yellow-200 p-4">
