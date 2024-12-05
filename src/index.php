@@ -11,8 +11,8 @@ $result = mysqli_query($db_connect,$query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ain</title>
-    <link rel="stylesheet" href="./output.css">
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 <body class="relative h-screen">
 <?php if(isset($_SESSION['error'])):?>
     <div class="flex bg-yellow-200 p-4">
@@ -41,7 +41,7 @@ $result = mysqli_query($db_connect,$query);
             <td class="px-2 md:px-6 py-3"><?php echo $customer_data['lastName'];?></td>
             <td class="px-2 md:px-6 py-3 overflow-hidden"><?php echo $customer_data['email'];?></td>
             <td class="px-2 md:px-6 py-3">
-                <a class="bg-blue-500 text-white px-5 py-2 rounded-lg">Edit</a>
+                <a href="edit.php?customer_id=<?php echo $customer_data['Customer_id'];?>" class="bg-blue-500 text-white px-5 py-2 rounded-lg">Edit</a>
                 <a href="delete.php?customer_id=<?php echo $customer_data['Customer_id'];?>" class="bg-red-500 text-white px-5 py-2 rounded-lg">Delete</a>
             </td>
         </tr>
